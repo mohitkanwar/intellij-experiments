@@ -4,11 +4,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
+
+import static java.util.logging.Logger.getLogger;
 
 @Service
 public class GreetingServiceImpl implements GreetingService {
     private static Map<String,String> locales;
-
+    private static final Logger logger = getLogger("GreetingServiceImpl");
     public GreetingServiceImpl() {
         locales = new HashMap<>();
         locales.put("en-US","Hello");

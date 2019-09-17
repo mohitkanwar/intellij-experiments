@@ -15,13 +15,27 @@ public class GreetingController {
 
     @RequestMapping("/")
     public GreetingModel greet(@RequestParam(required = false , name = "name", defaultValue = "World") String name){
-        GreetingModel greetingModel = new GreetingModel("Hello", name);
-        return greetingModel;
+        GreetingModel myGreetingModel = new GreetingModel("Hello", name);
+        System.out.println("GreetingController.greet");
+        System.out.println("name = [" + name + "]");
+
+        if (myGreetingModel != null) {
+
+        }
+        if (myGreetingModel != null) {
+
+        }
+        if (name == null) {
+
+        }
+        return myGreetingModel;
     }
     @RequestMapping("/{locale}/")
     public GreetingModel greetInLocale(@RequestParam(required = false , name = "name", defaultValue = "World") String name,
                                        @PathVariable(name = "locale", required = false) String locale){
         GreetingModel greetingModel = new GreetingModel(greetingService.getGreeting(locale), name);
+        System.out.println("GreetingController.greetInLocale");
+        System.out.println("name = [" + name + "], locale = [" + locale + "]");
         return greetingModel;
     }
 }
